@@ -16,6 +16,7 @@ def empty_board(size):
     """
     return [size*[0] for _ in range(size)]
 
+
 def board_size(board):
     """Returns the size of a square board.
 
@@ -23,6 +24,7 @@ def board_size(board):
     34
     """
     return len(board[0])
+
 
 def check(board, step, pos, length):
     """ Checks if a ship of lengtg <length>
@@ -51,6 +53,7 @@ def check(board, step, pos, length):
         counter += 1
     return True
 
+
 def transpose(board):
     """ Tansposes a board.
 
@@ -66,15 +69,18 @@ def transpose(board):
         boardt.append(column)
     return boardt
 
+
 def check_row_right(board, pos, length):
     """Checks a row to the rigth.
     """
     return 'row', check(board, 1, pos, length), 1
 
+
 def check_row_left(board, pos, length):
     """Checks a row to the left.
     """
     return 'row', check(board, -1, pos, length), -1
+
 
 def check_col_right(board, pos, length):
     """Checks a column to the rigth.
@@ -83,6 +89,7 @@ def check_col_right(board, pos, length):
     new_pos = (col, row)
     return 'col', check(transpose(board), 1, new_pos, length), 1
 
+
 def check_col_left(board, pos, length):
     """Checks a column to the left.
     """
@@ -90,7 +97,9 @@ def check_col_left(board, pos, length):
     new_pos = (col, row)
     return 'col', check(transpose(board), -1, new_pos, length), -1
 
+
 possible_choices = [check_row_right, check_row_left, check_col_right, check_col_left]
+
 
 def check_positions(board, pos, length):
     """ Returns a list with all the check functions
@@ -110,6 +119,7 @@ def check_positions(board, pos, length):
         functions.append([location, result, step])
     return functions
 
+
 def any_True(lst):
     """Given a input that represents a 2D array,
     checks if any of the sub-arrays contains the
@@ -118,6 +128,7 @@ def any_True(lst):
         if True in sub_lst:
             return True
     return False
+
 
 def get_True_options(functions):
     """Given a 2D array, returns another a new
@@ -229,6 +240,7 @@ def X_empty_board(board):
         new_board.append(['X' for elem in row])
     return new_board
 
+
 def remove_elem(lst, elem):
     """ Removes an element from a list.
 
@@ -237,6 +249,7 @@ def remove_elem(lst, elem):
     """
     elem_idx = lst.index(elem)
     return lst[:elem_idx]+lst[elem_idx+1:]
+
 
 def set_ships_dic(ships):
     """Sets a ships diccionary which keys are strings
@@ -348,6 +361,6 @@ if __name__ == '__main__':
         sys.exit(1)
     game = BattleShipGame(6, 3, 4)
     print game.play_battle_ship()
-    #play_battle_ship()
-    #print set_ships_dic([[(3, 5)], [(3, 4), (2, 4), (1, 4), (0, 4)], [(2, 2)]])
-    #print remove_elem_from_lst([1, 2, 4], 4)
+    # play_battle_ship()
+    # print set_ships_dic([[(3, 5)], [(3, 4), (2, 4), (1, 4), (0, 4)], [(2, 2)]])
+    # print remove_elem_from_lst([1, 2, 4], 4)
