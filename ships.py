@@ -359,7 +359,7 @@ if __name__ == '__main__':
     if ('-t' in sys.argv) or ('--test' in sys.argv):
         _doctest()
         sys.exit(1)
-    game = BattleShipGame(6, 3, 4)
+    game = BattleShipGame(1, 4, 6)
     print game.play_battle_ship()
     # play_battle_ship()
     # print set_ships_dic([[(3, 5)], [(3, 4), (2, 4), (1, 4), (0, 4)], [(2, 2)]])
